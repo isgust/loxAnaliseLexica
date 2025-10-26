@@ -1,7 +1,7 @@
 # Lox: Análise Léxica 
 ## Integrantes da Dupla
 
-| Nome Completo | Usuário do GitHub/GitLab |
+| Nome Completo | Usuário do GitHub|
 | :--- | :--- |
 | **Daniel Campos Galdez Monteiro** | `DanielKGM` |
 | **Gustavo Antonio Silva Rocha** | `isgust` |
