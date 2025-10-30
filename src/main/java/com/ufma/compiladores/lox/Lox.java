@@ -1,4 +1,5 @@
-package com.ufma.compiladores;
+package com.ufma.compiladores.lox;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
