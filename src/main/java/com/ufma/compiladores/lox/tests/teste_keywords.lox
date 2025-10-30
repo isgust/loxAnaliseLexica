@@ -1,0 +1,6 @@
+// Teste Keywords
+if (true) {
+  print "ok";
+} else {
+  print "fail";
+}
