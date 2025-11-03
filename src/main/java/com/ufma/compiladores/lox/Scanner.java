@@ -15,21 +15,15 @@ public class Scanner {
         this.source = source;
     }
 
-    private boolean isAtEnd() {
-        return current >= source.length();
-    }
+    List<Token> scanTokens() {
+        while (!isAtEnd()) {
+            // We are at the beginning of the next lexeme.
+            start = current;
+            scanToken();
+        }
 
-    private char advance() {
-        return source.charAt(current++);
-    }
-
-    private void addToken(TokenType type) {
-        addToken(type, null);
-    }
-
-    private void addToken(TokenType type, Object literal) {
-        String text = source.substring(start, current);
-        tokens.add(new Token(type, text, literal, line));
+        tokens.add(new Token(EOF, "", null, line));
+        return tokens;
     }
 
     private void scanToken() {
@@ -65,18 +59,47 @@ public class Scanner {
             case '*':
                 addToken(STAR);
                 break;
+            case '!':
+                addToken(match('=') ? BANG_EQUAL : BANG);
+                break;
+            case '=':
+                addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+                break;
+            case '<':
+                addToken(match('=') ? LESS_EQUAL : LESS);
+                break;
+            case '>':
+                addToken(match('=') ? GREATER_EQUAL : GREATER);
+                break;
+            default:
+                Lox.error(line, "Unexpected character.");
+                break;
         }
     }
 
-    List<Token> scanTokens() {
-        while (!isAtEnd()) {
-            // We are at the beginning of the next lexeme.
-            start = current;
-            scanToken();
-        }
+    private boolean match(char expected) {
+        if (isAtEnd()) return false;
+        if (source.charAt(current) != expected) return false;
 
-        tokens.add(new Token(EOF, "", null, line));
-        return tokens;
+        current++;
+        return true;
+    }
+
+    private boolean isAtEnd() {
+        return current >= source.length();
+    }
+
+    private char advance() {
+        return source.charAt(current++);
+    }
+
+    private void addToken(TokenType type) {
+        addToken(type, null);
+    }
+
+    private void addToken(TokenType type, Object literal) {
+        String text = source.substring(start, current);
+        tokens.add(new Token(type, text, literal, line));
     }
 
 }
