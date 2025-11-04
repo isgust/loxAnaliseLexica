@@ -34,7 +34,7 @@ if (true) {
 
 Resultados obtidos rodando `ScannerTest.java`, responsável por testar `Scanner.java`:
 
-![teste_scanner_class](resources/scanner_class_test.png)
+![teste_scanner_class](resources/scanner_class_test_4_5.png)
 
 O teste funcionou perfeitamente, mas o scanner ainda não foi completado.
 

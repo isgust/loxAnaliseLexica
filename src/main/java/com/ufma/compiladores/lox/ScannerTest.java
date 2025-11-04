@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ScannerTest {
     public static void main(String[] args) throws IOException {
-        // Várias opções para rodar independente de onde
+        // Várias opções para rodar, independente de onde for executado
         Path testsDir = Paths.get("src", "main", "java", "com", "ufma", "compiladores", "lox", "tests");
 
         if (!Files.exists(testsDir)) {
