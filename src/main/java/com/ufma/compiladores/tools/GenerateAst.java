@@ -1,20 +1,22 @@
 package com.ufma.compiladores.tools;
 
-import java.io.IOException ;
-import java.io.PrintWriter ;
-import java.util.Arrays ;
-import java.util.List ;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
+
 public class GenerateAst {
-    public static void main ( String [] args ) throws IOException {
-        if ( args.length != 1 ) {
-            System.err.println ( " Uso : generate_ast < diretório de saída>" );
-            System.exit ( 64 ) ; } String outputDir = args [ 0 ] ;
-            defineAst ( outputDir , "Expr" , Arrays . asList (
-                "Binary : Expr left, Token operator, Expr right" ,
-                "Grouping : Expr expression" ,
-                "Literal : Object value" ,
-                "Unary : Token operator, Expr right"
-            ));
+    public static void main(String[] args) throws IOException {
+        if (args.length != 1) {
+            System.err.println(" Uso : generate_ast < diretório de saída>");
+            System.exit(64);
+        }
+        String outputDir = args[0];
+        defineAst(outputDir, "Expr", Arrays.asList(
+                "Binary : Expr left, Token operator, Expr right",
+                "Grouping : Expr expression",
+                "Literal : Object value",
+                "Unary : Token operator, Expr right"));
     }
 
     private static void defineAst(
@@ -69,8 +71,6 @@ public class GenerateAst {
             String name = field.split(" ")[1];
             writer.println("      this." + name + " = " + name + ";");
         }
-
-        writer.println("    }");
 
         // Fields.
         writer.println();
