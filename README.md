@@ -48,6 +48,14 @@ Os arquivos de entrada `teste_basico.lox` e `teste_keywords` foram rodados novam
 
 Claramente foram gerados mais tokens, tanto para palavras reservadas como "print" quanto para números e strings com lexemas mais longos, por exemplo. Pode-se dizer que a classe Scanner está cada vez mais completa.
 
+## Teste Seção 5.4 _A Not Very Pretty Printer_
+
+A classe `AstPrinter` foi executada, o resultado está na imagem a seguir:
+
+![teste_scanner_class](resources/astprinter_5_4.png)
+
+Ele imprime como o interpretador enxerga e organiza os operadores e valores antes de executar algo.
+
 ## Referência
 
 - **Livro Base:** _Crafting Interpreters_.
