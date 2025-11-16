@@ -15,16 +15,16 @@ Este projeto é a primeira etapa no desenvolvimento de um interpretador para a l
 
 Nesta fase, o foco principal é a **Análise Léxica (Scanning)**. O objetivo é construir a infraestrutura básica necessária para ler o código-fonte Lox e convertê-lo em uma sequência de _tokens_, que são as unidades mínimas de significado da linguagem.
 
-## Teste Sessão 2.5 _The Scanner Class: Recognizing Lexemes_
+## Teste Seção 4.5 _The Scanner Class: Recognizing Lexemes_
 
 Arquivos de entrada `teste_basico.lox` e `teste_keywords`, respectivamente:
 
 ```
-// Teste básico
+// teste_basico.lox
 var a = 123;
 print a + 45;
 
-// Teste Keywords
+// teste_keywords.lox
 if (true) {
   print "ok";
 } else {
@@ -34,11 +34,27 @@ if (true) {
 
 Resultados obtidos rodando `ScannerTest.java`, responsável por testar `Scanner.java`:
 
-![teste_scanner_class](resources/scanner_class_test.png)
+![teste_scanner_class](resources/scanner_class_test_4_5.png)
 
 O teste funcionou perfeitamente, mas o scanner ainda não foi completado.
 
-A saída é esperada, pois a implementação parou logo após tratar lexemas de um caractere, na [sessão 4.5](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
+A saída é esperada, pois a implementação parou logo após tratar lexemas de um caractere, na [seção 4.5](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
+
+## Teste Seção 4.7 _The Scanner Class: Recognizing Longer Lexemes and Keywords_
+
+Os arquivos de entrada `teste_basico.lox` e `teste_keywords` foram rodados novamente após implementar _recognizing longer lexemes_ ([seção 4.6](https://craftinginterpreters.com/scanning.html#longer-lexemes)) e _reserved words and identifiers_ ([seção 4.7](https://craftinginterpreters.com/scanning.html#reserved-words-and-identifiers)). A saída resultante está registrada na figura abaixo:
+
+![teste_scanner_class](resources/scanner_class_test_4_7.png)
+
+Claramente foram gerados mais tokens, tanto para palavras reservadas como "print" quanto para números e strings com lexemas mais longos, por exemplo. Pode-se dizer que a classe Scanner está cada vez mais completa.
+
+## Teste Seção 5.4 _A Not Very Pretty Printer_
+
+A classe `AstPrinter` foi executada, o resultado está na imagem a seguir:
+
+![teste_scanner_class](resources/astprinter_5_4.png)
+
+Ele imprime como o interpretador enxerga e organiza os operadores e valores antes de executar algo.
 
 ## Referência
 
