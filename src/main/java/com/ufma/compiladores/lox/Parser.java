@@ -1,10 +1,12 @@
 package com.ufma.compiladores.lox;
 
 import java.util.List;
-import static com.craftinginterpreters.lox.TokenType.*;
-
+import static com.ufma.compiladores.lox.TokenType.*;
 
 public class Parser {
+    private static class ParseError extends RuntimeException {
+    }
+
     private final List<Token> tokens;
     private int current = 0;
 
@@ -75,9 +77,12 @@ public class Parser {
     }
 
     private Expr primary() {
-        if (match(FALSE)) return new Expr.Literal(false);
-        if (match(TRUE)) return new Expr.Literal(true);
-        if (match(NIL)) return new Expr.Literal(null);
+        if (match(FALSE))
+            return new Expr.Literal(false);
+        if (match(TRUE))
+            return new Expr.Literal(true);
+        if (match(NIL))
+            return new Expr.Literal(null);
 
         if (match(NUMBER, STRING)) {
             return new Expr.Literal(previous().literal);
@@ -88,6 +93,7 @@ public class Parser {
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new Expr.Grouping(expr);
         }
+        return null;
     }
 
     private boolean match(TokenType... types) {
@@ -101,13 +107,22 @@ public class Parser {
         return false;
     }
 
+    private Token consume(TokenType type, String message) {
+        if (check(type))
+            return advance();
+
+        throw error(peek(), message);
+    }
+
     private boolean check(TokenType type) {
-        if (isAtEnd()) return false;
+        if (isAtEnd())
+            return false;
         return peek().type == type;
     }
 
     private Token advance() {
-        if (!isAtEnd()) current++;
+        if (!isAtEnd())
+            current++;
         return previous();
     }
 
@@ -121,5 +136,10 @@ public class Parser {
 
     private Token previous() {
         return tokens.get(current - 1);
+    }
+
+    private ParseError error(Token token, String message) {
+        Lox.error(token, message);
+        return new ParseError();
     }
 }
