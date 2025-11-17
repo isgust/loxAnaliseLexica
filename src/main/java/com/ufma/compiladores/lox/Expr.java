@@ -1,8 +1,6 @@
 package com.ufma.compiladores.lox;
 
-import java.util.List;
-
-abstract class Expr {
+public abstract class Expr {
   interface Visitor<R> {
     R visitBinaryExpr(Binary expr);
 

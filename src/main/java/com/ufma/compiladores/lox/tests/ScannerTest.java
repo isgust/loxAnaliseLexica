@@ -1,8 +1,10 @@
-package com.ufma.compiladores.lox;
+package com.ufma.compiladores.lox.tests;
 
 import java.io.*;
 import java.nio.file.*;
 import java.util.List;
+import com.ufma.compiladores.lox.Scanner;
+import com.ufma.compiladores.lox.Token;
 
 public class ScannerTest {
     public static void main(String[] args) throws IOException {
