@@ -36,7 +36,9 @@ if (true) {
 
 Resultados obtidos rodando `ScannerTest.java`, responsável por testar `Scanner.java`:
 
-![teste_scanner_class](resources/scanner_class_test_4_5.png)
+<p align="center" width="50%">
+    <img width="33%" src="resources/scanner_class_test_4_5.png"> 
+</p>
 
 O teste funcionou perfeitamente, mas o scanner ainda não foi completado.
 
@@ -46,7 +48,9 @@ A saída é esperada, pois a implementação parou logo após tratar lexemas de 
 
 Os arquivos de entrada `teste_basico.lox` e `teste_keywords` foram rodados novamente após implementar _recognizing longer lexemes_ ([seção 4.6](https://craftinginterpreters.com/scanning.html#longer-lexemes)) e _reserved words and identifiers_ ([seção 4.7](https://craftinginterpreters.com/scanning.html#reserved-words-and-identifiers)). A saída resultante está registrada na figura abaixo:
 
-![teste_scanner_class](resources/scanner_class_test_4_7.png)
+<p align="center" width="50%">
+    <img width="33%" src="resources/scanner_class_test_4_7.png"> 
+</p>
 
 Claramente foram gerados mais tokens, tanto para palavras reservadas como "print" quanto para números e strings com lexemas mais longos, por exemplo. Pode-se dizer que a classe Scanner está cada vez mais completa.
 
@@ -54,7 +58,9 @@ Claramente foram gerados mais tokens, tanto para palavras reservadas como "print
 
 A classe `AstPrinter` foi executada, o resultado está na imagem a seguir:
 
-![teste_scanner_class](resources/astprinter_5_4.png)
+<p align="center" width="70%">
+    <img width="33%" src="resources/astprinter_5_4.png"> 
+</p>
 
 Ele imprime como o interpretador enxerga e organiza os operadores e valores antes de executar algo.
 
@@ -74,7 +80,9 @@ true == false
 
 A seguir está a imagem com a saída produzida pelos testes:
 
-![teste_parser](resources/parser_6.png)
+<p align="center" width="50%">
+    <img width="33%" src="resources/parser_6.png"> 
+</p>
 
 Os testes confirmam que o parser:
 
